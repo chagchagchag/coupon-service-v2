@@ -1,0 +1,39 @@
+version: '3.7'
+services:
+  coupon-mysql:
+    image: mysql:5.7.39-debian
+    restart: always
+    #    command: --lower_case_table_names=1
+    container_name: coupon-mysql
+    hostname: coupon-mysql
+    ports:
+      - "23306:3306"
+    environment:
+      - MYSQL_USER=user
+      - MYSQL_USER_HOST=%
+      - MYSQL_PASSWORD=test1357
+      - MYSQL_DATABASE=coupon
+      - MYSQL_ROOT_HOST=%
+      - MYSQL_ROOT_PASSWORD=test1357
+      - TZ=Asia/Seoul
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - ./init/:/docker-entrypoint-initdb.d/
+    networks:
+      - coupon-network
+  coupon-redis:
+    image: redis:6.2.6-alpine
+    ports:
+      - 26379:6379
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes:
+      - ./volume/redis/data:/data
+      - ./conf/redis/redis.conf:/usr/local/etc/redis/redis.conf
+      # redis docker image 에는 config 파일이 없다. config 파일로 필요한 설정을 위해
+    restart: always
+networks:
+  coupon-network:
+    external: true
+#    driver: bridge
