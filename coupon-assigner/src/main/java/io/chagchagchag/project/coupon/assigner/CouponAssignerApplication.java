@@ -1,11 +1,11 @@
-package io.chagchagchag.project.coupon.core;
+package io.chagchagchag.project.coupon.assigner;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CouponCoreApplication {
+public class CouponAssignerApplication {
     public static void main(String [] args){
-        SpringApplication.run(CouponCoreApplication.class, args);
+        SpringApplication.run(CouponAssignerApplication.class, args);
     }
 }
