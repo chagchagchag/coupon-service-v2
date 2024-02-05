@@ -16,6 +16,7 @@ repositories {
 }
 
 dependencies {
+	implementation(project(":coupon-core"))
 	// jackson
 	implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
 	implementation("com.fasterxml.jackson.core:jackson-databind")
@@ -44,4 +45,12 @@ dependencies {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+}
+
+tasks.getByName("bootJar"){
+	enabled = true
+}
+
+tasks.getByName("jar"){
+	enabled = false
 }

@@ -24,19 +24,19 @@ dependencies {
 	annotationProcessor("org.projectlombok:lombok")
 	// spring boot
 	implementation("org.springframework.boot:spring-boot-starter")
-	implementation("org.springframework.boot:spring-boot-starter-web")
-	implementation("org.redisson:redisson-spring-boot-starter:3.16.4")
-	// querydsl
-	annotationProcessor("com.querydsl:querydsl-apt:5.0.0:jakarta")
-	annotationProcessor("jakarta.annotation:jakarta.annotation-api")
-	annotationProcessor("jakarta.persistence:jakarta.persistence-api")
+
+//	// redisson (core에서 사용안할 것이긴 하지만, 아직 확신이 없기에 주석처리로 대체)
+//	implementation("org.redisson:redisson-spring-boot-starter:3.16.4")
+
+//	// querydsl (core에서 사용안할 것이긴 하지만, 아직 확신이 없기에 주석처리로 대체)
+//	annotationProcessor("com.querydsl:querydsl-apt:5.0.0:jakarta")
+//	annotationProcessor("jakarta.annotation:jakarta.annotation-api")
+//	annotationProcessor("jakarta.persistence:jakarta.persistence-api")
+
 	// database
 	runtimeOnly("com.h2database:h2")
 	runtimeOnly("com.mysql:mysql-connector-j")
 	implementation("com.github.ben-manes.caffeine:caffeine")
-	// prometheus
-	implementation("org.springframework.boot:spring-boot-starter-actuator")
-	implementation("io.micrometer:micrometer-registry-prometheus")
 
 	// test
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
@@ -44,4 +44,12 @@ dependencies {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+}
+
+tasks.getByName("bootJar"){
+	enabled = false
+}
+
+tasks.getByName("jar"){
+	enabled = true
 }
