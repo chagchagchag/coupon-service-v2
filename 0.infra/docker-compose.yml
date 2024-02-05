@@ -24,15 +24,29 @@ services:
     networks:
       - coupon-network
   coupon-redis:
-    image: redis:6.2.6-alpine
+    image: redis:7.0.2-alpine
+    command: redis-server --port 6379
+    #    container_name: redis-temp
+    hostname: redis-normal
+    labels:
+      - "name=redis"
+      - "mode=standalone"
     ports:
       - 26379:6379
-    command: redis-server /usr/local/etc/redis/redis.conf
-    volumes:
-      - ./volume/redis/data:/data
-      - ./conf/redis/redis.conf:/usr/local/etc/redis/redis.conf
-      # redis docker image 에는 config 파일이 없다. config 파일로 필요한 설정을 위해
+    links:
+      - coupon-redis-commander
+    networks:
+      - coupon-network
+  coupon-redis-commander:
+    image: rediscommander/redis-commander:latest
+      # container_name: redis-commander
+    hostname: redis-commander
     restart: always
+    environment:
+      - REDIS_HOSTS=redis-normal
+    #      - REDIS_HOST=redis-normal:redis:16379
+    ports:
+      - 38081:8081
 networks:
   coupon-network:
     external: true
