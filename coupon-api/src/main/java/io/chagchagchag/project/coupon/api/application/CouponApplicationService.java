@@ -3,7 +3,7 @@ package io.chagchagchag.project.coupon.api.application;
 import io.chagchagchag.project.coupon.api.application.mapper.CouponRequestMapper;
 import io.chagchagchag.project.coupon.api.application.valueobject.CouponIssueRequest;
 import io.chagchagchag.project.coupon.api.queue.CouponQueueService;
-import io.chagchagchag.project.coupon.api.queue.valueobject.CouponQueueIssueDto;
+import io.chagchagchag.project.coupon.api.queue.valueobject.CouponIssueQueueDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,7 @@ public class CouponApplicationService {
     private final CouponQueueService couponQueueService;
 
     public void issueAsync(CouponIssueRequest request) {
-        CouponQueueIssueDto queueDto = couponRequestMapper.toCouponQueueIssueDto(request);
+        CouponIssueQueueDto queueDto = couponRequestMapper.toCouponQueueIssueDto(request);
         couponQueueService.enqueue(queueDto);
     }
 }

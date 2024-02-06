@@ -1,6 +1,6 @@
 package io.chagchagchag.project.coupon.api.queue.valueobject;
 
-public record CouponQueueIssueDto (
+public record CouponIssueQueueDto(
     Long userId,
     Long couponId
 ){
