@@ -16,6 +16,7 @@ import static io.chagchagchag.project.coupon.core.exception.ErrorCode.UNAVAILABL
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
+@Table(name = "coupons")
 public class CouponEntity extends BaseDateTimeEntity {
 
     @Id
