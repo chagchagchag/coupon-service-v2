@@ -1,4 +1,4 @@
-package io.chagchagchag.project.coupon.api.dataaccess;
+package io.chagchagchag.project.coupon.core.dataaccess.repository;
 
 import com.querydsl.jpa.JPQLQueryFactory;
 import io.chagchagchag.project.coupon.core.dataaccess.entity.CouponIssueEntity;

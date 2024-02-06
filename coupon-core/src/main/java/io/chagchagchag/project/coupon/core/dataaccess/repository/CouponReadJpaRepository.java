@@ -1,4 +1,4 @@
-package io.chagchagchag.project.coupon.api.dataaccess;
+package io.chagchagchag.project.coupon.core.dataaccess.repository;
 
 import io.chagchagchag.project.coupon.core.dataaccess.entity.CouponEntity;
 import jakarta.persistence.LockModeType;
