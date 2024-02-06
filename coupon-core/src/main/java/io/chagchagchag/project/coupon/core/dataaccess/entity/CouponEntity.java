@@ -4,6 +4,7 @@ import io.chagchagchag.project.coupon.core.exception.CouponIssueException;
 import io.chagchagchag.project.coupon.core.model.CouponAssignType;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -46,6 +47,24 @@ public class CouponEntity extends BaseDateTimeEntity {
 
     @Column(nullable = false)
     private LocalDateTime issueEndDateTime;
+
+    @Builder(builderClassName = "FifoBuilderFromNow", builderMethodName = "fromNowFifoBuilder")
+    public CouponEntity(
+        Long id,    String title,
+        BigDecimal totalQuantity, BigDecimal issuedQuantity,
+        BigDecimal discountAmount, BigDecimal minAvailableAmount,
+        LocalDateTime issueEndDateTime
+    ){
+        this.id = id;
+        this.title = title;
+        this.couponAssignType = CouponAssignType.FIFO;
+        this.totalQuantity = totalQuantity;
+        this.issuedQuantity = issuedQuantity;
+        this.discountAmount = discountAmount;
+        this.minAvailableAmount = minAvailableAmount;
+        this.issueStartDateTime = LocalDateTime.now();
+        this.issueEndDateTime = issueEndDateTime;
+    }
 
     public Boolean hasIssueQuantityAvailable(){
         if (wasNeverIssued()) return true;

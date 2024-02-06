@@ -1,4 +1,4 @@
-package io.chagchagchag.project.coupon.core.config;
+package io.chagchagchag.project.coupon.api.config;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
