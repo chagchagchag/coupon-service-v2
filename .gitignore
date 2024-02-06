@@ -36,4 +36,8 @@ out/
 ### VS Code ###
 .vscode/
 
+## python
+**/*.pyc
+
+## docker-compose
 **/volume
