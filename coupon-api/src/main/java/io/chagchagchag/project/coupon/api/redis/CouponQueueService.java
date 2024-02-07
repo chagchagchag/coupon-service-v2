@@ -3,7 +3,7 @@ package io.chagchagchag.project.coupon.api.redis;
 import io.chagchagchag.project.coupon.api.dataaccess.CouponDataAccessService;
 import io.chagchagchag.project.coupon.api.dataaccess.valueobject.CouponEntityDto;
 import io.chagchagchag.project.coupon.api.redis.valueobject.CouponIssueQueueDto;
-import io.chagchagchag.project.coupon.api.redis.repository.CouponRedisRepository;
+import io.chagchagchag.project.coupon.api.redis.repository.CouponIssueRedisRepository;
 import io.chagchagchag.project.coupon.api.redis.mapper.CouponRedisEntityMapper;
 import io.chagchagchag.project.coupon.api.redis.valueobject.CouponIssueRedisEntity;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CouponQueueService {
 
-    private final CouponRedisRepository couponRedisRepository;
+    private final CouponIssueRedisRepository couponIssueRedisRepository;
     private final CouponDataAccessService couponDataAccessService;
     private final CouponRedisEntityMapper couponRedisEntityMapper;
 
@@ -32,7 +32,7 @@ public class CouponQueueService {
         couponIssueRedisEntity.validateCouponIssuable();
 
         // 3) CouponRedisRepository 에 CouponIssueRedisEntity 저장 (SADD, RPUSH)
-        couponRedisRepository.enqueueCouponIssueRequest(couponIssueRedisEntity);
+        couponIssueRedisRepository.enqueueCouponIssueRequest(queueDto.couponId(), queueDto.userId(), couponIssueRedisEntity.totalQuantity());
     }
 
 }
