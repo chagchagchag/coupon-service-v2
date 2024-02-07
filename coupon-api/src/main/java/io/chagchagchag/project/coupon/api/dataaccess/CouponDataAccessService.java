@@ -17,6 +17,8 @@ public class CouponDataAccessService {
     private final CouponMysqlLockRepository couponMysqlLockRepository;
     private final CouponEntityDtoMapper couponEntityDtoMapper;
 
+    // TODO :: 로컬 캐시 작업이 필요하다. MySQL 동시성 락으로 인한 부하를 줄이기 위함
+
     @Transactional(readOnly = true)
     public CouponEntityDto findCouponByCouponIdWithLock(Long couponId){
         return couponMysqlLockRepository
