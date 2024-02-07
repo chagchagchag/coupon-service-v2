@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
 @Service
-public class CouponApplicationService {
+public class CouponApiApplicationService {
 
     private final CouponRequestMapper couponRequestMapper;
     private final CouponQueueService couponQueueService;

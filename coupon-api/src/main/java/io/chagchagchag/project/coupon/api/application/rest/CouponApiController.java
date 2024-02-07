@@ -1,6 +1,6 @@
 package io.chagchagchag.project.coupon.api.application.rest;
 
-import io.chagchagchag.project.coupon.api.application.CouponApplicationService;
+import io.chagchagchag.project.coupon.api.application.CouponApiApplicationService;
 import io.chagchagchag.project.coupon.api.application.valueobject.CouponIssueRequest;
 import io.chagchagchag.project.coupon.api.application.valueobject.CouponIssueResponse;
 import lombok.RequiredArgsConstructor;
@@ -14,11 +14,11 @@ import static io.chagchagchag.project.coupon.api.application.valueobject.CouponI
 @RestController
 public class CouponApiController {
 
-    private final CouponApplicationService couponApplicationService;
+    private final CouponApiApplicationService couponApiApplicationService;
 
     @PostMapping("/coupon/issue")
     public CouponIssueResponse issue(@RequestBody CouponIssueRequest request){
-        couponApplicationService.issueAsync(request);
+        couponApiApplicationService.issueAsync(request);
         return new CouponIssueResponse(SUCCESS, SUCCESS.getMessageKr());
     }
 
