@@ -1,4 +1,4 @@
-package io.chagchagchag.project.coupon.api.queue.valueobject;
+package io.chagchagchag.project.coupon.api.redis.valueobject;
 
 public record CouponIssueQueueDto(
     Long userId,

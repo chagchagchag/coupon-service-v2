@@ -1,8 +1,8 @@
-package io.chagchagchag.project.coupon.api.queue;
+package io.chagchagchag.project.coupon.api.redis;
 
 import io.chagchagchag.project.coupon.api.dataaccess.CouponDataAccessService;
 import io.chagchagchag.project.coupon.api.dataaccess.valueobject.CouponEntityDto;
-import io.chagchagchag.project.coupon.api.queue.valueobject.CouponIssueQueueDto;
+import io.chagchagchag.project.coupon.api.redis.valueobject.CouponIssueQueueDto;
 import io.chagchagchag.project.coupon.api.redis.repository.CouponRedisRepository;
 import io.chagchagchag.project.coupon.api.redis.mapper.CouponRedisEntityMapper;
 import io.chagchagchag.project.coupon.api.redis.valueobject.CouponIssueRedisEntity;

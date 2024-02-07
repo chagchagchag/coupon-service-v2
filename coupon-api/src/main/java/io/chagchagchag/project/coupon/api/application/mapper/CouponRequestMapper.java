@@ -1,7 +1,7 @@
 package io.chagchagchag.project.coupon.api.application.mapper;
 
 import io.chagchagchag.project.coupon.api.application.valueobject.CouponIssueRequest;
-import io.chagchagchag.project.coupon.api.queue.valueobject.CouponIssueQueueDto;
+import io.chagchagchag.project.coupon.api.redis.valueobject.CouponIssueQueueDto;
 import org.springframework.stereotype.Component;
 
 @Component
