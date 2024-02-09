@@ -1,6 +1,7 @@
 package io.chagchagchag.project.coupon.core.dataaccess.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
@@ -28,5 +29,20 @@ public class CouponIssueEntity extends BaseDateTimeEntity{
     private LocalDateTime issuedDateTime;
 
     private LocalDateTime usedDateTime;
+
+    @Builder(builderClassName = "DefaultBuilder", builderMethodName = "defaultBuilder")
+    public CouponIssueEntity(
+        Long id,
+        Long couponId,
+        Long userId,
+        LocalDateTime issuedDateTime,
+        LocalDateTime usedDateTime
+    ){
+        this.id = id;
+        this.couponId = couponId;
+        this.userId = userId;
+        this.issuedDateTime = issuedDateTime;
+        this.usedDateTime = usedDateTime;
+    }
 
 }
