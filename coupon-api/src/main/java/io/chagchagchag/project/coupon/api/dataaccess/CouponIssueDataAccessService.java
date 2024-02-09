@@ -57,7 +57,7 @@ public class CouponIssueDataAccessService {
         saveNewCouponIssue(couponId, userId);
         // TODO :: Cache Aside 자료구조 put
     }
-    
+
     @Transactional(readOnly = true)
     public CouponEntity findCouponByCouponIdWithLock(Long couponId){
         return couponMysqlLockRepository

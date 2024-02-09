@@ -37,6 +37,25 @@ public class CouponEntityFactory {
                 .build();
     }
 
+    public CouponEntity newDefaultCoupon(
+        String title, Long couponId
+    ){
+        final LocalDateTime now = LocalDateTime.now();
+        final LocalDateTime end = now.plus(DefaultDuration.THOUSAND_DAY.getTemporalAmount());
+
+        return CouponEntity.defaultBuilder()
+                .id(couponId)
+                .title(title)
+                .couponAssignType(CouponAssignType.FIFO)
+                .totalQuantity(DefaultQuantity.TOTAL_QUANTITY.getQuantity())
+                .issuedQuantity(DefaultQuantity.ISSUED_QUANTITY.getQuantity())
+                .discountAmount(DefaultAmount.DISCOUNT_AMOUNT.getAmount())
+                .minAvailableAmount(DefaultAmount.MIN_AVAILABLE_AMOUNT.getAmount())
+                .issueStartDateTime(now)
+                .issueEndDateTime(end)
+                .build();
+    }
+
     /**
      * title, totalQuantity 외의 기본필드 설정이 갖춰진 Fifo 쿠폰을 생성 (할인액, 최소할인금액 등은 디폴트 값을 따름)
      * @param title 쿠폰 명
