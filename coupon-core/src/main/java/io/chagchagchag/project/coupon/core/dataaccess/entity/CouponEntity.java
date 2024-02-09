@@ -48,6 +48,25 @@ public class CouponEntity extends BaseDateTimeEntity {
     @Column(nullable = false)
     private LocalDateTime issueEndDateTime;
 
+    @Builder(builderClassName = "DefaultBuilder", builderMethodName = "defaultBuilder")
+    public CouponEntity(
+        Long id, String title,
+        CouponAssignType couponAssignType,
+        BigDecimal totalQuantity, BigDecimal issuedQuantity,
+        BigDecimal discountAmount, BigDecimal minAvailableAmount,
+        LocalDateTime issueStartDateTime, LocalDateTime issueEndDateTime
+    ){
+        this.id = id;
+        this.title = title;
+        this.couponAssignType = couponAssignType;
+        this.totalQuantity = totalQuantity;
+        this.issuedQuantity = issuedQuantity;
+        this.discountAmount = discountAmount;
+        this.minAvailableAmount = minAvailableAmount;
+        this.issueStartDateTime = issueStartDateTime;
+        this.issueEndDateTime = issueEndDateTime;
+    }
+
     @Builder(builderClassName = "FifoBuilderFromNow", builderMethodName = "fromNowFifoBuilder")
     public CouponEntity(
         Long id,    String title,
