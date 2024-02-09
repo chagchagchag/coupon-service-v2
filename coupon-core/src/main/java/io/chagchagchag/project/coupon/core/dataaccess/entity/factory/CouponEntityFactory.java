@@ -81,6 +81,24 @@ public class CouponEntityFactory {
                 .build();
     }
 
+    public CouponEntity newInfiniteCoupon(
+        String title
+    ){
+        final LocalDateTime now = LocalDateTime.now();
+        final LocalDateTime end = now.plus(DefaultDuration.THOUSAND_DAY.getTemporalAmount());
+
+        return CouponEntity.defaultBuilder()
+                .title(title)
+                .couponAssignType(CouponAssignType.FIFO)
+                .totalQuantity(null)
+                .issuedQuantity(DefaultQuantity.ISSUED_QUANTITY.getQuantity())
+                .discountAmount(DefaultAmount.DISCOUNT_AMOUNT.getAmount())
+                .minAvailableAmount(DefaultAmount.MIN_AVAILABLE_AMOUNT.getAmount())
+                .issueStartDateTime(now)
+                .issueEndDateTime(end)
+                .build();
+    }
+
     public CouponEntity newDefaultCouponWithExpiration(
         String title,
         LocalDateTime issueStartDateTime,

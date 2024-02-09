@@ -95,6 +95,7 @@ public class CouponEntity extends BaseDateTimeEntity {
     }
 
     public Boolean hasEnoughQuantity(){
+        if(totalQuantity == null) return true; // 쿠폰이 무한일 경우
         return totalQuantity.compareTo(issuedQuantity) > 0;
     }
 
@@ -103,7 +104,7 @@ public class CouponEntity extends BaseDateTimeEntity {
         return issueStartDateTime.isBefore(now) && issueEndDateTime.isAfter(now);
     }
 
-    public Boolean isExpiredCoupon(){
+    public Boolean isCouponQuantityFull(){
         LocalDateTime now = LocalDateTime.now();
         return issueEndDateTime.isBefore(now) || !hasEnoughQuantity();
     }
