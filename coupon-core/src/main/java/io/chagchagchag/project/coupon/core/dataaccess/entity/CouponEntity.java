@@ -104,6 +104,15 @@ public class CouponEntity extends BaseDateTimeEntity {
         return issueStartDateTime.isBefore(now) && issueEndDateTime.isAfter(now);
     }
 
+    public void validateCouponIssuable(){
+        final LocalDateTime now = LocalDateTime.now();
+        if(!hasEnoughQuantity())
+            throw new CouponIssueException(EXCEEDED_COUPON_ISSUE_QUANTITY, EXCEEDED_COUPON_ISSUE_QUANTITY.message);
+
+        if(issueEndDateTime.isBefore(now))
+            throw new CouponIssueException(UNAVAILABLE_COUPON_ISSUE_DATE, UNAVAILABLE_COUPON_ISSUE_DATE.message);
+    }
+
     public Boolean isCouponQuantityFull(){
         LocalDateTime now = LocalDateTime.now();
         return issueEndDateTime.isBefore(now) || !hasEnoughQuantity();

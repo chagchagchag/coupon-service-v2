@@ -6,7 +6,6 @@ import io.chagchagchag.project.coupon.api.fixtures.CouponEntityFixtures;
 import io.chagchagchag.project.coupon.api.fixtures.CouponIssueEntityFixtures;
 import io.chagchagchag.project.coupon.core.dataaccess.entity.CouponEntity;
 import io.chagchagchag.project.coupon.core.dataaccess.entity.CouponIssueEntity;
-import io.chagchagchag.project.coupon.core.dataaccess.entity.factory.CouponIssueEntityFactory;
 import io.chagchagchag.project.coupon.core.exception.CouponIssueException;
 import io.chagchagchag.project.coupon.core.exception.ErrorCode;
 import jakarta.transaction.Transactional;
@@ -26,9 +25,6 @@ public class CouponIssueDataAccessServiceTest {
 
     @Autowired
     private CouponIssueDataAccessService couponIssueDataAccessService;
-
-    @Autowired
-    private CouponDataAccessService couponDataAccessService;
 
     @Autowired
     private CouponJpaRepository couponJpaRepository;

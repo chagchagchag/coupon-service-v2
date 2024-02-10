@@ -3,12 +3,12 @@ package io.chagchagchag.project.coupon.api.dataaccess;
 import io.chagchagchag.project.coupon.api.dataaccess.mapper.CouponIssueEntityMapper;
 import io.chagchagchag.project.coupon.api.dataaccess.repository.CouponIssueJpaRepository;
 import io.chagchagchag.project.coupon.api.dataaccess.repository.CouponIssueReadQuerydsl;
-import io.chagchagchag.project.coupon.api.dataaccess.repository.CouponJpaRepository;
 import io.chagchagchag.project.coupon.api.dataaccess.repository.CouponMysqlLockRepository;
 import io.chagchagchag.project.coupon.api.dataaccess.valueobject.CouponIssueEntityDto;
 import io.chagchagchag.project.coupon.core.dataaccess.entity.CouponEntity;
 import io.chagchagchag.project.coupon.core.dataaccess.entity.CouponIssueEntity;
 import io.chagchagchag.project.coupon.core.dataaccess.entity.factory.CouponIssueEntityFactory;
+import io.chagchagchag.project.coupon.core.domain.CouponDomainService;
 import io.chagchagchag.project.coupon.core.exception.CouponIssueException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -27,7 +27,7 @@ public class CouponIssueDataAccessService {
     private final CouponIssueEntityMapper couponIssueEntityMapper;
     private final CouponIssueEntityFactory couponIssueEntityFactory;
     private final CouponMysqlLockRepository couponMysqlLockRepository;
-    private final CouponJpaRepository couponJpaRepository;
+    private final CouponDomainService couponDomainService;
 
     @Transactional
     public CouponIssueEntityDto saveNewCouponIssue(Long couponId, Long userId){
@@ -55,7 +55,7 @@ public class CouponIssueDataAccessService {
         couponEntity.issue();
 
         saveNewCouponIssue(couponId, userId);
-        // TODO :: Cache Aside 자료구조 put
+        publishCouponIssueEvent(couponEntity);
     }
 
     @Transactional(readOnly = true)
@@ -65,5 +65,10 @@ public class CouponIssueDataAccessService {
                 .orElseThrow(() -> {
                     throw new CouponIssueException(COUPON_NOT_EXIST, COUPON_NOT_EXIST.message);
                 });
+    }
+
+    private void publishCouponIssueEvent(CouponEntity coupon){
+        coupon.validateCouponIssuable();
+        couponDomainService.publishEvent(coupon.getId());
     }
 }
