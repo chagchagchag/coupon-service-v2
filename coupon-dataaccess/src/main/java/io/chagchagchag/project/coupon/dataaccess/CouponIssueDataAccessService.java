@@ -54,7 +54,6 @@ public class CouponIssueDataAccessService {
         return couponEntity;
     }
 
-    // TODO :: 로컬 캐시 작업 필요
     @Transactional(readOnly = true)
     public CouponEntity findCouponByCouponIdWithLock(Long couponId){
         return Optional
