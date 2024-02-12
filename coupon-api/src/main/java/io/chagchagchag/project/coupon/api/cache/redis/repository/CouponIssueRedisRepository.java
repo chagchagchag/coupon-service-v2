@@ -1,4 +1,4 @@
-package io.chagchagchag.project.coupon.api.redis.repository;
+package io.chagchagchag.project.coupon.api.cache.redis.repository;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
