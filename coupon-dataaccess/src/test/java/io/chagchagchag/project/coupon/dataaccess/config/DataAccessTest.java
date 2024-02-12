@@ -1,5 +1,6 @@
 package io.chagchagchag.project.coupon.dataaccess.config;
 
+import io.chagchagchag.project.coupon.dataaccess.CouponDataAccessConfig;
 import io.chagchagchag.project.coupon.dataaccess.mysql.repository.CouponMysqlLockRepository;
 import io.chagchagchag.project.coupon.dataaccess.mysql.repository.CouponReadQuerydsl;
 import io.chagchagchag.project.coupon.core.dataaccess.entity.CouponEntity;
@@ -19,8 +20,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @Transactional
 @ActiveProfiles("test")
-@TestPropertySource(properties = "spring.config.name=application-api")
-@SpringBootTest
+@TestPropertySource(properties = "spring.config.name=application-dataaccess")
+@SpringBootTest(classes = CouponDataAccessConfig.class)
 public class DataAccessTest {
 
     @Autowired
