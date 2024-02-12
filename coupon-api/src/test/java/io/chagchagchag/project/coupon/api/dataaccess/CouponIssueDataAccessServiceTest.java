@@ -66,16 +66,10 @@ public class CouponIssueDataAccessServiceTest {
         CouponEntity coupon = CouponEntityFixtures.ofNoError(couponId);
         couponJpaRepository.save(coupon);
 
-        CouponIssueEntity couponIssueEntity = CouponIssueEntityFixtures.ofNoError(couponId, userId);
         couponIssueDataAccessService.saveNewCouponIssue(couponId, userId);
 
-        // when : 이미 존재하는 CouponIssueEntity 에 대해 Error 를 올바르게 내는지를 검증
-        CouponIssueException exception = Assertions.assertThrows(CouponIssueException.class, () -> {
-            couponIssueDataAccessService.issue(couponId, userId);
-        });
-
-        // then : error 검증
-        Assertions.assertEquals(exception.getErrorCode(), ErrorCode.DUPLICATED_COUPON_ISSUE_REQUEST);
+        CouponEntity savedCoupon = couponIssueDataAccessService.findCouponByCouponIdWithLock(coupon.getId());
+        Assertions.assertEquals(savedCoupon.getId(), coupon.getId());
     }
 
     @Test

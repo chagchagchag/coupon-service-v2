@@ -58,10 +58,11 @@ public class CouponIssueDataAccessService {
         publishCouponIssueEvent(couponEntity);
     }
 
+    // TODO :: 로컬 캐시 작업 필요
     @Transactional(readOnly = true)
     public CouponEntity findCouponByCouponIdWithLock(Long couponId){
-        return couponMysqlLockRepository
-                .findCouponWithLock(couponId)
+        return Optional
+                .ofNullable(couponMysqlLockRepository.findCouponWithLock(couponId))
                 .orElseThrow(() -> {
                     throw new CouponIssueException(COUPON_NOT_EXIST, COUPON_NOT_EXIST.message);
                 });
