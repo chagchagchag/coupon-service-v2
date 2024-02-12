@@ -1,4 +1,4 @@
-package io.chagchagchag.project.coupon.core.redis;
+package io.chagchagchag.project.coupon.core.cache.redis;
 
 public class RedisKey {
     // TODO: |

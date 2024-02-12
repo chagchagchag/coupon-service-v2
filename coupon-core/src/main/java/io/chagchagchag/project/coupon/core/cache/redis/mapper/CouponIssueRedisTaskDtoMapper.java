@@ -1,6 +1,6 @@
-package io.chagchagchag.project.coupon.core.redis.mapper;
+package io.chagchagchag.project.coupon.core.cache.redis.mapper;
 
-import io.chagchagchag.project.coupon.core.redis.task.CouponIssueRedisTaskDto;
+import io.chagchagchag.project.coupon.core.cache.redis.task.CouponIssueRedisTaskDto;
 import org.springframework.stereotype.Component;
 
 @Component

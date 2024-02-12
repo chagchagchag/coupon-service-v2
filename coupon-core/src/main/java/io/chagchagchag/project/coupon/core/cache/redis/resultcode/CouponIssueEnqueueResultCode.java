@@ -1,4 +1,4 @@
-package io.chagchagchag.project.coupon.core.redis.resultcode;
+package io.chagchagchag.project.coupon.core.cache.redis.resultcode;
 
 import io.chagchagchag.project.coupon.core.exception.CouponIssueException;
 import lombok.Getter;
