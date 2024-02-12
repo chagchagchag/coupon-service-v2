@@ -103,18 +103,19 @@ public class CouponEntityFactoryTest {
     @Test
     @DisplayName("issue() : 발급 수량, 발급 기간이 유효하면 발급 성공")
     void issue__ISSUE_SUCCESS_WHEN_QUANTITY_AND_DURATION_IS_NORMAL(){
+        BigDecimal issuedQuantity = BigDecimal.ONE;
         // given
         CouponEntity coupon = couponEntityFactory
                 .newDefaultCouponWithExpiration(
                     "농심 10% 할인 이벤트",
-                    BigDecimal.TWO, BigDecimal.ONE,
+                    BigDecimal.TWO, issuedQuantity,
                     LocalDateTime.now().minusDays(1), LocalDateTime.now().plusDays(1)
                 );
 
         // when
         coupon.issue();
         // then
-        Assertions.assertEquals(coupon.getIssuedQuantity(), BigDecimal.ONE);
+        Assertions.assertEquals(coupon.getIssuedQuantity(), issuedQuantity.add(BigDecimal.ONE));
     }
 
     @Test
@@ -148,8 +149,5 @@ public class CouponEntityFactoryTest {
         CouponIssueException exception = Assertions.assertThrows(CouponIssueException.class, coupon::issue);
         Assertions.assertEquals(exception.getErrorCode(), ErrorCode.UNAVAILABLE_COUPON_ISSUE_DATE);
     }
-
-    ///// 3) isCouponQuantityFull
-
 
 }
