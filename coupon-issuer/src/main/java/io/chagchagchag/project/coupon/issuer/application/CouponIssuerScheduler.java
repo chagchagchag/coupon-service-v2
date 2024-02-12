@@ -25,12 +25,21 @@ public class CouponIssuerScheduler {
     @Scheduled(fixedDelay = 500)
     @Transactional
     public void issue() throws JsonProcessingException {
+        // TODO |
+        //  Batch 작업이 아닌 개별 단건 처리 작업 기반으로 구현해두었다.
+        //  추후 Batch(스프링배치 말고 여러건 묶음처리) 작업으로 전환할지 검토 예정
         while(couponIssueRedisRepository.existsWaitingForBeingIssued()){
+            // 작업 큐 인출 (poll())
             CouponIssueQueueDto queueDto = couponIssueRedisRepository.pollOne();
-            log.info("[Publish] start >> " + queueDto);
 
+            // 쿠폰 발급 (issue)
             CouponEntity coupon = couponIssueDataAccessService.issue(queueDto.couponId(), queueDto.userId());
+
+            // coupon 검증 (validate)
             coupon.validateCouponIssuable();
+
+            // DomainEvent Publish
+            log.info("[Publish] start >> " + queueDto);
             couponDomainService.publishEvent(queueDto.couponId());
         }
     }
