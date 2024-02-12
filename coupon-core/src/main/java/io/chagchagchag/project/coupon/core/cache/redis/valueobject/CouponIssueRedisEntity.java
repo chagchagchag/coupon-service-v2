@@ -1,4 +1,4 @@
-package io.chagchagchag.project.coupon.api.redis.valueobject;
+package io.chagchagchag.project.coupon.core.cache.redis.valueobject;
 
 import io.chagchagchag.project.coupon.core.exception.CouponIssueException;
 import io.chagchagchag.project.coupon.core.exception.ErrorCode;

@@ -1,10 +1,10 @@
 package io.chagchagchag.project.coupon.api.redis;
 
 import io.chagchagchag.project.coupon.api.dataaccess.CouponIssueDataAccessService;
-import io.chagchagchag.project.coupon.api.redis.mapper.CouponRedisEntityMapper;
+import io.chagchagchag.project.coupon.core.cache.redis.mapper.CouponRedisEntityMapper;
 import io.chagchagchag.project.coupon.api.redis.repository.CouponIssueRedisRepository;
-import io.chagchagchag.project.coupon.api.redis.valueobject.CouponIssueQueueDto;
-import io.chagchagchag.project.coupon.api.redis.valueobject.CouponIssueRedisEntity;
+import io.chagchagchag.project.coupon.core.cache.redis.valueobject.CouponIssueQueueDto;
+import io.chagchagchag.project.coupon.core.cache.redis.valueobject.CouponIssueRedisEntity;
 import io.chagchagchag.project.coupon.core.dataaccess.entity.CouponEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
