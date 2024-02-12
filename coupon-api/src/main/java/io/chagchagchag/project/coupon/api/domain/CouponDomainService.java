@@ -1,4 +1,4 @@
-package io.chagchagchag.project.coupon.core.domain;
+package io.chagchagchag.project.coupon.api.domain;
 
 import io.chagchagchag.project.coupon.core.domain.event.CouponIssueCreatedEvent;
 import io.chagchagchag.project.coupon.core.domain.event.factory.CouponIssueCreatedEventFactory;

@@ -8,7 +8,7 @@ import io.chagchagchag.project.coupon.api.dataaccess.valueobject.CouponIssueEnti
 import io.chagchagchag.project.coupon.core.dataaccess.entity.CouponEntity;
 import io.chagchagchag.project.coupon.core.dataaccess.entity.CouponIssueEntity;
 import io.chagchagchag.project.coupon.core.dataaccess.entity.factory.CouponIssueEntityFactory;
-import io.chagchagchag.project.coupon.core.domain.CouponDomainService;
+import io.chagchagchag.project.coupon.api.domain.CouponDomainService;
 import io.chagchagchag.project.coupon.core.exception.CouponIssueException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
