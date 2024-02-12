@@ -10,13 +10,13 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories(
     basePackages = {
         "io.chagchagchag.project.coupon.core.dataaccess",
-        "io.chagchagchag.project.coupon.api.dataaccess"
+        "io.chagchagchag.project.coupon.dataaccess"
     }
 )
 @EntityScan(
     basePackages = {
         "io.chagchagchag.project.coupon.core.dataaccess",
-        "io.chagchagchag.project.coupon.api.dataaccess"
+        "io.chagchagchag.project.coupon.dataaccess"
     }
 )
 @EnableAspectJAutoProxy(exposeProxy = true)
