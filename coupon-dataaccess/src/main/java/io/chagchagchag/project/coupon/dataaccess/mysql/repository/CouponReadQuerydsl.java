@@ -6,7 +6,7 @@ import io.chagchagchag.project.coupon.dataaccess.mysql.entity.CouponEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
-import static io.chagchagchag.project.coupon.core.dataaccess.entity.QCouponEntity.couponEntity;
+import static io.chagchagchag.project.coupon.dataaccess.mysql.entity.QCouponEntity.couponEntity;
 
 @RequiredArgsConstructor
 @Repository

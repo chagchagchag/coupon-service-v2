@@ -2,12 +2,12 @@ package io.chagchagchag.project.coupon.dataaccess.cache;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.chagchagchag.project.coupon.core.cache.redis.valueobject.CouponIssueQueueDto;
+import io.chagchagchag.project.coupon.dataaccess.cache.redis.valueobject.CouponIssueQueueDto;
 import io.chagchagchag.project.coupon.core.exception.CouponIssueException;
-import io.chagchagchag.project.coupon.core.cache.redis.RedisKey;
-import io.chagchagchag.project.coupon.core.cache.redis.mapper.CouponIssueRedisTaskDtoMapper;
-import io.chagchagchag.project.coupon.core.cache.redis.resultcode.CouponIssueEnqueueResultCode;
-import io.chagchagchag.project.coupon.core.cache.redis.task.CouponIssueRedisTaskDto;
+import io.chagchagchag.project.coupon.dataaccess.cache.redis.RedisKey;
+import io.chagchagchag.project.coupon.dataaccess.cache.redis.mapper.CouponIssueRedisTaskDtoMapper;
+import io.chagchagchag.project.coupon.dataaccess.cache.redis.resultcode.CouponIssueEnqueueResultCode;
+import io.chagchagchag.project.coupon.dataaccess.cache.redis.task.CouponIssueRedisTaskDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.RedisTemplate;

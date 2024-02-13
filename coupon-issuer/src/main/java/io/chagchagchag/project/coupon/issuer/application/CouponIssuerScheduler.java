@@ -1,7 +1,7 @@
 package io.chagchagchag.project.coupon.issuer.application;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import io.chagchagchag.project.coupon.core.cache.redis.valueobject.CouponIssueQueueDto;
+import io.chagchagchag.project.coupon.dataaccess.cache.redis.valueobject.CouponIssueQueueDto;
 import io.chagchagchag.project.coupon.dataaccess.mysql.entity.CouponEntity;
 import io.chagchagchag.project.coupon.dataaccess.CouponIssueDataAccessService;
 import io.chagchagchag.project.coupon.dataaccess.cache.CouponIssueRedisRepository;

@@ -1,8 +1,8 @@
 package io.chagchagchag.project.coupon.dataaccess.cache;
 
 import io.chagchagchag.project.coupon.dataaccess.CouponIssueDataAccessService;
-import io.chagchagchag.project.coupon.core.cache.redis.valueobject.CouponRedisEntity;
-import io.chagchagchag.project.coupon.core.cache.redis.valueobject.factory.CouponRedisEntityFactory;
+import io.chagchagchag.project.coupon.dataaccess.cache.redis.valueobject.CouponRedisEntity;
+import io.chagchagchag.project.coupon.dataaccess.cache.redis.valueobject.factory.CouponRedisEntityFactory;
 import io.chagchagchag.project.coupon.dataaccess.mysql.entity.CouponEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.aop.framework.AopContext;
