@@ -1,7 +1,7 @@
 package io.chagchagchag.project.coupon.dataaccess.mysql.mapper;
 
 import io.chagchagchag.project.coupon.dataaccess.mysql.valueobject.CouponEntityDto;
-import io.chagchagchag.project.coupon.core.dataaccess.entity.CouponEntity;
+import io.chagchagchag.project.coupon.dataaccess.mysql.entity.CouponEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

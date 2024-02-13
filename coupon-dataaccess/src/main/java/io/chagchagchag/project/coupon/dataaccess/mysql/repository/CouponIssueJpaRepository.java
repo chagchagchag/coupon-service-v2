@@ -1,6 +1,6 @@
 package io.chagchagchag.project.coupon.dataaccess.mysql.repository;
 
-import io.chagchagchag.project.coupon.core.dataaccess.entity.CouponIssueEntity;
+import io.chagchagchag.project.coupon.dataaccess.mysql.entity.CouponIssueEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

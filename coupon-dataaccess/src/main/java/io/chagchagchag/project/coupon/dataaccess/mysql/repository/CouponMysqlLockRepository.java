@@ -1,6 +1,6 @@
 package io.chagchagchag.project.coupon.dataaccess.mysql.repository;
 
-import io.chagchagchag.project.coupon.core.dataaccess.entity.CouponEntity;
+import io.chagchagchag.project.coupon.dataaccess.mysql.entity.CouponEntity;
 import jakarta.persistence.LockModeType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Lock;

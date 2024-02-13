@@ -1,6 +1,6 @@
-package io.chagchagchag.project.coupon.core.dataaccess.entity.factory;
+package io.chagchagchag.project.coupon.dataaccess.mysql.entity.factory;
 
-import io.chagchagchag.project.coupon.core.dataaccess.entity.CouponIssueEntity;
+import io.chagchagchag.project.coupon.dataaccess.mysql.entity.CouponIssueEntity;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;

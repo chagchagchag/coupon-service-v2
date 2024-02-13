@@ -1,6 +1,6 @@
 package io.chagchagchag.project.coupon.dataaccess;
 
-import io.chagchagchag.project.coupon.core.dataaccess.entity.CouponEntity;
+import io.chagchagchag.project.coupon.dataaccess.mysql.entity.CouponEntity;
 import io.chagchagchag.project.coupon.core.exception.CouponIssueException;
 import io.chagchagchag.project.coupon.core.exception.ErrorCode;
 import io.chagchagchag.project.coupon.dataaccess.mysql.repository.CouponJpaRepository;

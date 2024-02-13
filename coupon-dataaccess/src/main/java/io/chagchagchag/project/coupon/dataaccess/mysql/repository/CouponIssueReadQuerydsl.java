@@ -1,7 +1,7 @@
 package io.chagchagchag.project.coupon.dataaccess.mysql.repository;
 
 import com.querydsl.jpa.JPQLQueryFactory;
-import io.chagchagchag.project.coupon.core.dataaccess.entity.CouponIssueEntity;
+import io.chagchagchag.project.coupon.dataaccess.mysql.entity.CouponIssueEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

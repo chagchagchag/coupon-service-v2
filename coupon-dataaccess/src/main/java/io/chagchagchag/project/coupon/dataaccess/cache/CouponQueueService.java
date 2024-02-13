@@ -3,7 +3,7 @@ package io.chagchagchag.project.coupon.dataaccess.cache;
 import io.chagchagchag.project.coupon.core.cache.redis.mapper.CouponRedisEntityMapper;
 import io.chagchagchag.project.coupon.core.cache.redis.valueobject.CouponIssueQueueDto;
 import io.chagchagchag.project.coupon.core.cache.redis.valueobject.CouponIssueRedisEntity;
-import io.chagchagchag.project.coupon.core.dataaccess.entity.CouponEntity;
+import io.chagchagchag.project.coupon.dataaccess.mysql.entity.CouponEntity;
 import io.chagchagchag.project.coupon.dataaccess.CouponDataAccessService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

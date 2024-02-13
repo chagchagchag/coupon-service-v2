@@ -1,7 +1,7 @@
 package io.chagchagchag.project.coupon.dataaccess.fixtures;
 
-import io.chagchagchag.project.coupon.core.dataaccess.entity.CouponEntity;
-import io.chagchagchag.project.coupon.core.dataaccess.entity.factory.CouponEntityFactory;
+import io.chagchagchag.project.coupon.dataaccess.mysql.entity.CouponEntity;
+import io.chagchagchag.project.coupon.dataaccess.mysql.entity.factory.CouponEntityFactory;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

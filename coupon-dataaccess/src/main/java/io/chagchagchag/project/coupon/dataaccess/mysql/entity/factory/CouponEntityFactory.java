@@ -1,10 +1,10 @@
-package io.chagchagchag.project.coupon.core.dataaccess.entity.factory;
+package io.chagchagchag.project.coupon.dataaccess.mysql.entity.factory;
 
 
-import io.chagchagchag.project.coupon.core.dataaccess.entity.CouponEntity;
-import io.chagchagchag.project.coupon.core.dataaccess.entity.factory.defaultvalue.DefaultAmount;
-import io.chagchagchag.project.coupon.core.dataaccess.entity.factory.defaultvalue.DefaultDuration;
-import io.chagchagchag.project.coupon.core.dataaccess.entity.factory.defaultvalue.DefaultQuantity;
+import io.chagchagchag.project.coupon.dataaccess.mysql.entity.CouponEntity;
+import io.chagchagchag.project.coupon.dataaccess.mysql.entity.factory.defaultvalue.DefaultAmount;
+import io.chagchagchag.project.coupon.dataaccess.mysql.entity.factory.defaultvalue.DefaultDuration;
+import io.chagchagchag.project.coupon.dataaccess.mysql.entity.factory.defaultvalue.DefaultQuantity;
 import io.chagchagchag.project.coupon.core.model.CouponAssignType;
 import org.springframework.stereotype.Component;
 

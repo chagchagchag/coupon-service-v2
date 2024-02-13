@@ -1,4 +1,4 @@
-package io.chagchagchag.project.coupon.core.dataaccess.entity.factory.defaultvalue;
+package io.chagchagchag.project.coupon.dataaccess.mysql.entity.factory.defaultvalue;
 
 import lombok.Getter;
 

@@ -1,4 +1,4 @@
-package io.chagchagchag.project.coupon.core.dataaccess.entity;
+package io.chagchagchag.project.coupon.dataaccess.mysql.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
