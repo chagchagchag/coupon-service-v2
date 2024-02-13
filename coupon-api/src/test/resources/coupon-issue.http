@@ -1,0 +1,11 @@
+### userId = 1 인 사용자의 couponId = 1 발급 요청
+# (linux, mac, git bash)
+# curl -d '{"couponId": 1, "userId": 1}' -H "Content-Type: application/json" -X POST http://localhost:8080/coupon/issue
+
+POST http://localhost:8080/coupon/issue
+Content-Type: application/json
+
+{
+  "couponId": 1,
+  "userId": 3
+}
