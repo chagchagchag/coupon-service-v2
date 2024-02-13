@@ -1,5 +1,6 @@
 package io.chagchagchag.project.coupon.core.dataaccess.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
@@ -15,9 +16,11 @@ import java.time.LocalDateTime;
 public abstract class BaseDateTimeEntity {
 
     @CreatedDate
+    @Column(name = "created_datetime")
     private LocalDateTime createdDateTime;
 
     @LastModifiedDate
+    @Column(name = "updated_datetime")
     private LocalDateTime updatedDateTime;
 
 }

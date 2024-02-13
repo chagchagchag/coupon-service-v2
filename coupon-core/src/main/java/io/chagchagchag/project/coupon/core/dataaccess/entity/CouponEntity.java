@@ -42,10 +42,10 @@ public class CouponEntity extends BaseDateTimeEntity {
     @Column(nullable = false)
     private BigDecimal minAvailableAmount;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "issue_start_datetime")
     private LocalDateTime issueStartDateTime;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "issue_end_datetime")
     private LocalDateTime issueEndDateTime;
 
     @Builder(builderClassName = "DefaultBuilder", builderMethodName = "defaultBuilder")

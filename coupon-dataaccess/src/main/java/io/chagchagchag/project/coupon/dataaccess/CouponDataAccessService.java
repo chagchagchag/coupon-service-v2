@@ -1,29 +1,37 @@
 package io.chagchagchag.project.coupon.dataaccess;
 
-import io.chagchagchag.project.coupon.core.exception.ErrorCode;
-import io.chagchagchag.project.coupon.dataaccess.mysql.mapper.CouponEntityMapper;
-import io.chagchagchag.project.coupon.dataaccess.mysql.repository.CouponMysqlLockRepository;
-import io.chagchagchag.project.coupon.dataaccess.mysql.valueobject.CouponEntityDto;
+import io.chagchagchag.project.coupon.core.dataaccess.entity.CouponEntity;
 import io.chagchagchag.project.coupon.core.exception.CouponIssueException;
+import io.chagchagchag.project.coupon.core.exception.ErrorCode;
+import io.chagchagchag.project.coupon.dataaccess.mysql.repository.CouponJpaRepository;
+import io.chagchagchag.project.coupon.dataaccess.mysql.repository.CouponMysqlLockRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
+import static io.chagchagchag.project.coupon.core.exception.ErrorCode.COUPON_NOT_EXIST;
+
 @RequiredArgsConstructor
 @Service
 public class CouponDataAccessService {
-
+    private final CouponJpaRepository couponJpaRepository;
     private final CouponMysqlLockRepository couponMysqlLockRepository;
-    private final CouponEntityMapper couponEntityMapper;
 
-    // TODO :: 로컬 캐시 작업이 필요하다. MySQL 동시성 락으로 인한 부하를 줄이기 위함
     @Transactional(readOnly = true)
-    public CouponEntityDto findCouponByCouponIdWithLock(Long couponId){
+    public CouponEntity findCouponByCouponIdWithLock(Long couponId){
         return Optional
                 .ofNullable(couponMysqlLockRepository.findCouponWithLock(couponId))
-                .map(couponEntityMapper::toCouponEntityDto)
-                .orElseThrow(()-> {throw new CouponIssueException(ErrorCode.COUPON_NOT_EXIST, ErrorCode.COUPON_ISSUE_FAIL.message);});
+                .orElseThrow(()-> {throw new CouponIssueException(COUPON_NOT_EXIST, ErrorCode.COUPON_ISSUE_FAIL.message);});
+    }
+
+    @Transactional(readOnly = true)
+    public CouponEntity findCouponById(Long couponId){
+        return couponJpaRepository
+                .findById(couponId)
+                .orElseThrow(() -> {
+                    throw new CouponIssueException(COUPON_NOT_EXIST, COUPON_NOT_EXIST.message);
+                });
     }
 }
