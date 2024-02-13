@@ -20,13 +20,12 @@ public class CouponCacheService {
 
     @CachePut(cacheNames = "coupon")
     public CouponRedisEntity putRedisCouponCache(Long couponId){
-        CouponEntity coupon = couponIssueDataAccessService.findCouponByCouponIdWithLock(couponId);
-        return couponRedisEntityFactory.fromCouponEntity(coupon);
+        return getRedisCouponCache(couponId);
     }
 
     @Cacheable(cacheNames = "coupon")
     public CouponRedisEntity getRedisCouponCache(Long couponId){
-        CouponEntity coupon = couponIssueDataAccessService.findCouponByCouponIdWithLock(couponId);
+        CouponEntity coupon = couponIssueDataAccessService.findCouponById(couponId);
         return couponRedisEntityFactory.fromCouponEntity(coupon);
     }
 

@@ -24,10 +24,11 @@ public class CouponIssueEntity extends BaseDateTimeEntity{
     @Column(nullable = false)
     private Long userId;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "issued_datetime")
     @CreatedDate
     private LocalDateTime issuedDateTime;
 
+    @Column(name = "used_datetime")
     private LocalDateTime usedDateTime;
 
     @Builder(builderClassName = "DefaultBuilder", builderMethodName = "defaultBuilder")

@@ -51,7 +51,7 @@ public class CouponIssueDataAccessServiceTest {
         CouponIssueEntityDto couponIssueEntityDto = couponIssueDataAccessService.saveNewCouponIssue(1L, 1L);
 
         // then
-        Assertions.assertTrue(couponIssueDataAccessService.findById(couponIssueEntityDto.id()).isPresent());
+        Assertions.assertTrue(couponIssueDataAccessService.findCouponIssueById(couponIssueEntityDto.id()).isPresent());
     }
 
     ////// 2) issue 테스트 (saveNewCouponIssue() 를 감싸는 issue() 메서드를 검증)
