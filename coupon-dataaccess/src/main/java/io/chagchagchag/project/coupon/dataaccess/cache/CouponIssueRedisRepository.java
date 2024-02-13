@@ -82,6 +82,10 @@ public class CouponIssueRedisRepository {
         return objectMapper.readValue(lIndex(queueKey, 0L), CouponIssueQueueDto.class);
     }
 
+    public String removeOldestOne(){
+        return redisTemplate.opsForList().leftPop(queueKey);
+    }
+
     public boolean existsWaitingForBeingIssued(){
         return lSize(queueKey) > 0;
     }

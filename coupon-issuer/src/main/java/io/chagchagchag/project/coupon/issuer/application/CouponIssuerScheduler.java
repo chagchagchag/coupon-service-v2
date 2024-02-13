@@ -41,6 +41,7 @@ public class CouponIssuerScheduler {
             // DomainEvent Publish
             log.info("[Publish] start >> " + queueDto);
             couponDomainService.publishEvent(queueDto.couponId());
+            couponIssueRedisRepository.removeOldestOne();
         }
     }
 }
