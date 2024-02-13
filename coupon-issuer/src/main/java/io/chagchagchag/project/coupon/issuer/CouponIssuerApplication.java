@@ -24,6 +24,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication(scanBasePackages = "io.chagchagchag.project.coupon")
 public class CouponIssuerApplication {
     public static void main(String [] args){
+        System.setProperty("spring.config.name", "application-issuer");
         SpringApplication.run(CouponIssuerApplication.class, args);
     }
 }
