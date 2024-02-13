@@ -22,7 +22,7 @@ public class CouponIssuerScheduler {
     private final CouponIssueDataAccessService couponIssueDataAccessService;
     private final CouponDomainService couponDomainService;
 
-    @Scheduled(fixedDelay = 500)
+    @Scheduled(fixedDelay = 1000)
     @Transactional
     public void issue() throws JsonProcessingException {
         // TODO |
@@ -33,10 +33,7 @@ public class CouponIssuerScheduler {
             CouponIssueQueueDto queueDto = couponIssueRedisRepository.pollOne();
 
             // 쿠폰 발급 (issue)
-            CouponEntity coupon = couponIssueDataAccessService.issue(queueDto.couponId(), queueDto.userId());
-
-            // coupon 검증 (validate)
-            coupon.validateCouponIssuable();
+            couponIssueDataAccessService.issue(queueDto.couponId(), queueDto.userId());
 
             // DomainEvent Publish
             log.info("[Publish] start >> " + queueDto);

@@ -28,7 +28,7 @@ public class CouponIssueEntity extends BaseDateTimeEntity{
     @CreatedDate
     private LocalDateTime issuedDateTime;
 
-    @Column(name = "used_datetime")
+    @Column(nullable = true, name = "used_datetime")
     private LocalDateTime usedDateTime;
 
     @Builder(builderClassName = "DefaultBuilder", builderMethodName = "defaultBuilder")

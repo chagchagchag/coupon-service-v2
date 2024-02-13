@@ -52,6 +52,7 @@ public class CouponIssueDataAccessService {
     @Transactional
     public CouponEntity issue(Long couponId, Long userId){
         CouponEntity couponEntity = findCouponByCouponIdWithLock(couponId);
+        couponEntity.validateCouponIssuable();
         couponEntity.issue();
 
         saveNewCouponIssue(couponId, userId);
