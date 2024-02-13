@@ -22,6 +22,8 @@ spring:
     redis:
       host: localhost
       port: 6379
+  application:
+    name: coupon-api
 server:
   port: 8080
   tomcat:
@@ -35,7 +37,7 @@ management:
   endpoints:
     web:
       exposure:
-        exclude: prometheus
+        include: prometheus
 ---
 spring:
   config:
@@ -65,4 +67,4 @@ management:
   endpoints:
     web:
       exposure:
-        exclude: prometheus
+        include: prometheus
