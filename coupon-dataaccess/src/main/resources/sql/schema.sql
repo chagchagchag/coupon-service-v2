@@ -32,3 +32,15 @@ CREATE TABLE coupon.coupon_issues(
     PRIMARY KEY (id)
 ) ENGINE = InnoDB
 default charset = utf8mb4;
+
+-- 테스트 용도의 쿠폰 INSERT
+INSERT INTO coupon.coupons(
+    title, coupon_assign_type, total_quantity, issued_quantity, discount_amount,
+    min_available_amount, issue_start_datetime, issue_end_datetime, created_datetime, updated_datetime
+)
+VALUES (
+           '50% 세일. 과연 누가 주인공이 될 것인가?', 'FIFO', 1000, 0, 50,
+           1000, '2024-01-01 00:00:01', '2024-11-11 23:59:59', '2023-12-31 23:00:00', '2023-12-31 23:00:00'
+       );
+
+COMMIT;
