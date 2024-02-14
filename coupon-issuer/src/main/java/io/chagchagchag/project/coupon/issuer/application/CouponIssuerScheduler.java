@@ -1,10 +1,9 @@
 package io.chagchagchag.project.coupon.issuer.application;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import io.chagchagchag.project.coupon.dataaccess.cache.redis.valueobject.CouponIssueQueueDto;
-import io.chagchagchag.project.coupon.dataaccess.mysql.entity.CouponEntity;
 import io.chagchagchag.project.coupon.dataaccess.CouponIssueDataAccessService;
 import io.chagchagchag.project.coupon.dataaccess.cache.CouponIssueRedisRepository;
+import io.chagchagchag.project.coupon.dataaccess.cache.redis.valueobject.CouponIssueQueueDto;
 import io.chagchagchag.project.coupon.issuer.domain.CouponDomainService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
